@@ -2,11 +2,9 @@ from tkinter import *
 
 
 def getvalue():
-    print(f"Name: {namevalue.get()}")
-    print(f"Phone: {Phonevalue.get()}")
-    print(f"Gender: {gendervalue.get()}")
-    print(f"EmarContact: {Emergencyvalue.get()}")
-    print(f"Payment: {Paymentvalue.get()}")
+    with open("tut12.txt","a") as f:
+        f.write(f"{namevalue.get(),Phonevalue.get(),gendervalue.get(),Emergencyvalue.get(),Paymentvalue.get(),foodservicevalue.get()}\n")
+    print(f"{namevalue.get(),Phonevalue.get(),gendervalue.get(),Emergencyvalue.get(),Paymentvalue.get(),foodservicevalue.get()}")
 
 
 root = Tk()
@@ -31,6 +29,7 @@ Phonevalue = StringVar()
 gendervalue = StringVar()
 Emergencyvalue = StringVar()
 Paymentvalue = StringVar()
+foodservicevalue = IntVar()
 
 nameentry = Entry(root, textvariable=namevalue)
 Phoneentry = Entry(root, textvariable=Phonevalue)
@@ -43,5 +42,8 @@ Phoneentry.grid(row=2, column=1)
 genderentry.grid(row=3, column=1)
 Emergencyentry.grid(row=4, column=1)
 Paymententry.grid(row=5, column=1)
+foodservice = Checkbutton(text="want to pre book your meals?", variable=foodservicevalue)
+foodservice.grid(row=6,column=1)
+
 Button(root, text="submit", command=getvalue).grid()
 root.mainloop()
