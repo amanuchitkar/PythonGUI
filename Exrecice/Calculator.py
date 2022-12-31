@@ -22,7 +22,7 @@ def click(event):
 root = Tk()
 root.geometry("500x600")
 root.title("Calculator")
-root.wm_iconbitmap("calculator.ico")
+root.wm_iconbitmap("../images/calculator.ico")
 
 scvalue = StringVar()
 scvalue.set("")
